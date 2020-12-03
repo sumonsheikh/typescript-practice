@@ -1,30 +1,54 @@
+interface IAddressDto{
+    id:         number;
+    areaName:   string;
+    postalCode: number;
+    city:       string;
+    country:    string;
+}
+
 class Student {
-    Id:number;
-    Name:string;
-    Age:number;
-    Gender?:string;
-    Address?:string;
-    AdmissionMonth?:string;
-    Course?:string[];
+
+    id:                 number;
+    name:               string;
+    age:                number;
+    gender?:            string;
+    address?:           IAddressDto;
+    admissionMonth?:    string;
+    course?:            string[];
+
+    constructor(
+        id:                 number,
+        name:               string,
+        age:                number,
+        gender?:            string,
+        address?:           IAddressDto,
+        admissionMonth?:    string,
+        course?:            string[],
+    ){
+        this.id             = id;
+        this.name           = name;
+        this.age            = age;
+        this.gender         = gender;
+        this.address        = address;
+        this.admissionMonth = admissionMonth;
+        this.course         = course;
+
+    };
 }
 
 
 class School {
-    student1 = new Student();
-    student2 = new Student();
-
-    student1.Age = 10;
-    student2.Age = 20;
-
-    let studentAge1 = student1.Age;
-    let studentAge2 = student2.Age;
-
-    ageSum(studentAge1,studentAge2){
-
-        return studentAge1+studentAge2;
+    studentAgeSum(studentAge1: number, studentAge2: number){
+        return (studentAge1 + studentAge2);
     }
 
-}
+}   
 
-school = new School();
-school.ageSum()
+let student1 = new Student(1,'Kabir', 15, 'male', studentAddress1, 'None');
+let student2 = new Student(2,'Khabir', 15, 'male', studentAddress2, 'None');
+
+let school   = new School();
+let ageSum   = school.studentAgeSum(student1.age, student2.age);
+console.log(ageSum);
+
+
