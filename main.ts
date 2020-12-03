@@ -30,7 +30,7 @@ class Student {
 
 
 class School {
-    studentAgeSum(studentAge1: number, studentAge2: number){
+    private studentAgeSum(studentAge1: number, studentAge2: number){
         return (studentAge1 + studentAge2);
     }
 
@@ -38,6 +38,8 @@ class School {
 let student1 = new Student(1,'None', 15, 'None', 'None', 'None', 'None');
 let student2 = new Student(2,'None', 15, 'None', 'None', 'None', 'None');
 
-let school = new School();
-let ageSum = school.studentAgeSum(student1.age, student2.age);
+let school   = new School();
+let ageSum   = school.studentAgeSum(student1.age, student2.age);
 console.log(ageSum);
+
+
